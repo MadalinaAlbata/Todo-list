@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Josefin+Sans:wght@700&family=Oswald:wght@500&family=Squada+One&family=Yanone+Kaffeesatz:wght@600&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background: #e6e5e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.list-container ul {
+    margin: 10px;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    overflow: auto;
+    /*justify-content: center;
+    align-items: center;
+    text-align: center;*/
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #e9a0ab;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d84e55c7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a82930c7;
+}
+
+.list-container {
+    background: #edf0f1;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.todo-list {
+    top: 0;
+    left: 0px;
+    width: 50%;
+    z-index: 2;
+}
+
+input {
+    display: block;
+    margin: 5px auto;
+    width: 95%;
+    height: 40px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    text-indent: 18px;
+    outline: none;
+    padding: 0 65px 0 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 0px;
+    box-shadow: none;
+    background: linear-gradient(#943b5fd7, #d84e55c7);
+}
+
+input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.todo-list .btn-add {
+    position: absolute;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    right: 8px;
+    box-shadow: none;
+    border-radius: 25px;
+    border: 1.5px solid #da112f;
+    background: linear-gradient(#690211, #ff0468);
+}
+
+.todo-list button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.todo-list button svg,
+fill {
+    fill: #ffffff;
+}
+
+ul.todo li {
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    background: #fff;
+    line-height: 2px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    padding: 14px 100px 14px 14px;
+    margin: 0 0 10px 0;
+    color: #49020d;
+}
+
+ul.todo li:last-of-type {
+    margin: 0;
+}
+
+ul.todo li .buttons {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+ul.todo li .buttons button {
+    width: 40px;
+    height: 30px;
+    background: none;
+    position: relative;
+    border: 0;
+    cursor: pointer;
+    float: left;
+}
+
+ul.todo li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    background: #c3c5c5;
+}
+
+.noFill {
+    fill: none;
+}
+
+ul.todo li .buttons button svg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.todo li .buttons button.complete svg {
+    border-radius: 25px;
+    border: 1.5px solid #860a3b;
+}
+
+ul.todo li .buttons button svg .fill {
+    transition: fill 0.2 ease;
+}
+
+ul.todo li .buttons button.remove svg .fill {
+    fill: #860a3b;
+}
+
+ul.todo li .buttons button.remove:hover svg .fill {
+    fill: #cf3975;
+    /*linear-gradient(#690211, #ff0468);*/
+}
+
+ul.todo li .buttons button.complete svg .fill {
+    fill: #ec9557;
+}
+
+ul.todo#completed li .buttons button.complete svg {
+    background: #860a3b;
+    border: 0px;
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
+    fill: #ec8f4d;
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg {
+    background: #860a3b;
+    transition: background 0.2s ease;
+}
+
+ul.todo#completed li .buttons button.complete svg .fill {
+    fill: #ec8f4d;
+}
+
+.completed-list {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: linear-gradient(#943b5e, #d84e55, #fdab72);
+    position: relative;
+    color: #fff;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.ghost {
+    border-radius: 20px;
+    background: linear-gradient(#b81c5a8a, #da112f48);
+    /*color: #8f0117;*/
+    color: #ebd0dd;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 12px 45px;
+    transition: transform 80ms ease-in;
+    font-weight: bold;
+    border: 1.75px solid #da112f96;
+    margin-top: 20px;
+}
+
+.ghost:hover {
+    background: linear-gradient(#860a3b, #da112f96);
+    color: rgb(218, 197, 197);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+
+/*Animation*/
+
+
+/*move todo list to right*/
+
+.container.right-panel-active .todo-list {
+    transform: translateX(100%);
+}
+
+
+/* move overlay to left*/
+
+.container.right-panel-active .overlay-container {
+    transform: translate(-100%);
+}
+
+
+/* bring completed list over todo list */
+
+.container.right-panel-active .completed-list {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 6;
+}
+
+
+/* move overlay to right*/
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0%);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
